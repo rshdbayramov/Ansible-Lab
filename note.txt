@@ -1,0 +1,12 @@
+#Reboot server 
+ansible all -a "/sbin/reboot" --become --ask-become-pass    OR  ansible all -a "/sbin/reboot" --become -K
+
+#Ping Host from inventory List
+ansible all --key-file /home/rashad/.ssh/ansible -i inventory -m ping
+
+#Packet install
+ansible all -m apt -a name=hwinfo(Packetin adidir) --become -K
+#Packet Udate 
+ansible all -m apt -a "name=tmux state=latest" --become -K
+#OS upgrade 
+ansible all -m apt -a upgrade=dist --become -K
