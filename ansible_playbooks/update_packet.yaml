@@ -1,0 +1,13 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  #TASK 1
+    - name: Bu task apt packet index update edilmesi ucundur.
+      apt:
+        update_cache: yes #APT packet var ki onu update etmeliyiki packeti update edilsin.
+#TASK 2
+    - name: Update apt cache and make sure Apache2 is installed.
+      apt:
+        name: apache2  #Packetin adi yuklemek isdediymiz
+        state: latest  #Last version install 

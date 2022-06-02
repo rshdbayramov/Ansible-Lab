@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+
+#TASK 2
+    - name: Ununstalling apache from OS 
+      apt:
+        name: apache2  #Packetin adi yuklemek isdediymiz
+        state: absent
+   
