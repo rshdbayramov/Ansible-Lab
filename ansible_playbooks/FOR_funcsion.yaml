@@ -1,0 +1,17 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+ 
+  #TASK 1
+    - name: Bu task apt packet index update edilmesi ucundur.
+      apt:
+        update_cache: yes #Bu task muxtelif OS olanlarda packet yuklemek ucundur
+      when: ansible_distrubioton == "Ubuntu"
+
+#TASK 2
+    - name: Update apt cache and make sure Apache2 is installed.
+      apt:
+        name: apache2  #Packetin adi yuklemek isdediymiz
+        state: latest  #Last version install 
+      when: ansible_distrubioton == "Ubuntu"
