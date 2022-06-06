@@ -1,0 +1,11 @@
+all:
+  hosts:
+    mail.example.com:
+  webservers:
+    hosts:
+      www[01:50].example.com:
+  webservers2:
+    hosts:
+      www[01:50:2].example.com:
+
+ 
