@@ -1,0 +1,26 @@
+#Examples1
+
+tasks:
+  - name: Let us update box when OS is Debian
+    apt:
+      update_cache: yes
+      cache_valid_time: 3600
+      upgrade: dist
+    when: ansible_distribution == "Debian"
+
+
+#Examples2
+
+tasks:
+  - name: Reboot Ubuntu systems
+    ansible.builtin.command: /sbin/shutdown -r now
+    when: ansible_facts['os_family'] == "Ubuntu"
+
+
+#Examples3
+tasks:
+  - name: Shut down CentOS 6 systems
+    ansible.builtin.command: /sbin/shutdown -t now
+    when:
+      - ansible_facts['distribution'] == "CentOS"
+      - ansible_facts['distribution_major_version'] == "6"

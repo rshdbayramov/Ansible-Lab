@@ -1,0 +1,7 @@
+#gather_facts butun serverlerin haqqinda onlarin distribution ve diger butun melumatlarini getirir !
+
+
+ansible all -m gather_facts  
+
+
+ansible all -m gather_facts --limit 192.168.1.2(isdeyim serverin ip adresi)

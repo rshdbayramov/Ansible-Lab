@@ -1,0 +1,15 @@
+We can define multiple conditions such as reboot the box if OS is Debian or Ubuntu but skip all other operating systems as follows using a logical OR with when clause as follows:
+
+
+#Examples1
+tasks:
+  - name: Reboot Debian or Ubuntu Linux box
+    ansible.builtin.command: /sbin/shutdown -r now
+    when: (ansible_distribution == "Debian" ) or (ansible_distribution == "Ubuntu")
+
+
+
+    
+    and : Boolean and
+    or : Boolean or
+    not : Boolean negation
