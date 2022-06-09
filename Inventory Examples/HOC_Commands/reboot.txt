@@ -1,0 +1,20 @@
+Rebooting servers
+$ ansible atlanta -a "/sbin/reboot" -f 10 -u username --become [--ask-become-pass]
+
+
+The default module for the ansible command-line utility is the ansible.builtin.command module. You can use an ad hoc task to call the command module and reboot all web servers in Atlanta, 10 at a time. Before Ansible can do this, you must have all servers in Atlanta listed in a group called [atlanta] in your inventory, and you must have working SSH credentials for each machine in that group. To reboot all the servers in the [atlanta] group:
+
+$ ansible atlanta -a "/sbin/reboot"
+
+By default Ansible uses only 5 simultaneous processes. If you have more hosts than the value set for the fork count, Ansible will talk to them, but it will take a little longer. To reboot the [atlanta] servers with 10 parallel forks:
+
+$ ansible atlanta -a "/sbin/reboot" -f 10
+
+/usr/bin/ansible will default to running from your user account. To connect as a different user:
+
+$ ansible atlanta -a "/sbin/reboot" -f 10 -u username
+
+Rebooting probably requires privilege escalation. You can connect to the server as username and run the command as the root user by using the become keyword:
+
+$ ansible atlanta -a "/sbin/reboot" -f 10 -u username --become [--ask-become-pass]
+

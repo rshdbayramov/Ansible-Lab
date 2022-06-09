@@ -1,0 +1,12 @@
+ansible all -m ping
+
+If you need privilege escalation (sudo and similar) to run a command, pass the become flags:
+
+# as bruce
+$ ansible all -m ping -u bruce
+# as bruce, sudoing to root (sudo is default method)
+$ ansible all -m ping -u bruce --become
+# as bruce, sudoing to batman
+$ ansible all -m ping -u bruce --become --become-user batman
+
+ansible [pattern] -m [module] -a "[module options]"
